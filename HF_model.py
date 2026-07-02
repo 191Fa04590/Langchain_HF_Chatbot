@@ -7,5 +7,11 @@ llm = HuggingFaceEndpoint(
     task= "text-generation"
 )
 model = ChatHuggingFace(llm = llm)
-result = model.invoke("Hello I am abhishek anand this is testing ,plese generate two philosphy's person name  from history")
-print(result.content)
+while True:
+    user_input = input("Enter your query")
+    if user_input.lower() !="exit":        
+        result = model.invoke(user_input)
+        print(result.content)
+    else:
+        break
+    
